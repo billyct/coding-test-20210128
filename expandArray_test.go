@@ -7,7 +7,7 @@ import (
 
 func Test_expandArray(t *testing.T) {
 	type args struct {
-		arrTwo [][]int
+		inputs [][]int
 	}
 	tests := []struct {
 		name string
@@ -15,9 +15,9 @@ func Test_expandArray(t *testing.T) {
 		want []int
 	}{
 		{
-			name: "Test_expandArray: ",
+			name: "Test_expandArray",
 			args: args{
-				arrTwo: [][]int{
+				inputs: [][]int{
 					{1, 3, 10},
 					{1, 2, 10, 21, 100},
 					{4, 7},
@@ -32,7 +32,7 @@ func Test_expandArray(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := expandArray(tt.args.arrTwo); !reflect.DeepEqual(got, tt.want) {
+			if got := expandArray(tt.args.inputs); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("expandArray() = %v, want %v", got, tt.want)
 			}
 		})
